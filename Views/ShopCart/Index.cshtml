@@ -1,0 +1,18 @@
+﻿@model ShopCartViewModel
+
+<div class=" container mt-5 mb-2">
+    @foreach (var el in Model.shopCart.shopCartItems)
+    {
+    <div class="alert alert-warning mt-3">
+        <b>Bелосипед: </b>@el.bicycle.name<br />
+        <b>Цена:</b>@el.bicycle.price.ToString()
+        <p><a class="btn btn-warning" asp-controller="ShopCart" asp-action="removeToCaret" asp-route-id="@el.bicycle.id" asp-route-idod="@el.id">Удалить</a></p>
+    </div>
+    }
+    <hr />
+    @if (Model.shopCart.shopCartItems != null)
+    {
+    <a class="btn btn-danger" asp-controller="Order" asp-action="Checkout">Оплатить</a>
+    }
+
+</div>

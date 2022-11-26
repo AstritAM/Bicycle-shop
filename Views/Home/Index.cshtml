@@ -1,0 +1,25 @@
+﻿@model HomeViewModel
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="~/css/HomeStyle.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+    <header>
+        <div class="container"
+
+<p><img src="img\Screenshot_1.png" width="1110"/></p>
+           </div>
+    </header>
+</body>
+</html>
+<div class="row mt-5 mb-2">
+    @{ foreach (Bicycle bicycle in Model.favBicycles)
+        { @Html.Partial("AllBicycle", bicycle) ;
+    } }
+
+</div>

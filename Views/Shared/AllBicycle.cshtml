@@ -1,0 +1,8 @@
+﻿@model Bicycle
+
+<div class="col-lg-4">
+    <img class="img-thumbnail" src=@Model.img />
+    <h2>Велосипед @Model.name</h2>
+    <p>Цена:@Model.price.ToString("# руб")</p>
+    <p><a class="btn btn-warning" asp-controller="ShopCart" asp-action="addToCaret" asp-route-id="@Model.id">Добавить в корзину</a></p>
+</div>

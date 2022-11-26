@@ -1,0 +1,12 @@
+﻿
+<div class="row mt-5 mb-2">
+
+    @{
+        foreach (Bicycle bicycle in Model.allBicycles)
+        {
+            if (bicycle.count > 0)
+                @Html.Partial("AllBicycle", bicycle);
+        }
+
+    }
+</div>

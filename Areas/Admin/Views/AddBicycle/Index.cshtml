@@ -1,0 +1,60 @@
+﻿
+
+
+<table border="1" cellpadding="5">
+    <thead>
+        <tr>
+            <th>
+                Название
+            </th>
+            <th>
+                Категория
+            </th>
+            <th>
+                Цена
+            </th>
+            <th>
+                Количество
+            </th>
+            <th>
+                Фирма
+            </th>
+            <th>
+                Изображение
+            </th>
+
+        </tr>
+
+
+
+
+    <tbody>
+        @{
+            foreach (Bicycle bicycle in Model.allBicycles)
+            {
+
+                <tr>
+                    <td>@bicycle.name</td>
+
+                    <td>@bicycle.Category.categName</td>
+                    <td>@bicycle.price</td>
+
+                    <td>@bicycle.count</td>
+
+                    <td>@bicycle.firm</td>
+
+                    <td><img src="@bicycle.img" width="40" /></td>
+
+                    <p><a class="btn btn-warning" asp-controller="AddBicycle" asp-action="RemoveBicycle" asp-route-id="@bicycle.id">Удалить</a></p>
+                </tr>
+
+
+
+            }
+
+        }
+    </tbody>
+    </thead>
+</table>
+
+<a class="btn btn-danger" asp-controller="AddBicycle" asp-action="Create">Добавить велосипед</a>

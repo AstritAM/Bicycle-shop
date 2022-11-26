@@ -1,0 +1,72 @@
+﻿@model OrderViewModel
+
+<table border="1" cellpadding="5">
+    <thead>
+        <tr>
+            <th>
+                Имя
+            </th>
+            <th>
+                Фамилия
+            </th>
+            <th>
+                Отчество
+            </th>
+            <th>
+                Телофон
+            </th>
+            <th>
+                Адрес
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Заказ
+            </th>
+
+        </tr>
+
+
+
+
+    <tbody>
+        @{
+            foreach (var order in Model.order)
+            {
+
+                <tr>
+                    <td>@order.Name</td>
+
+                    <td>@order.Surname</td>
+                    <td>@order.Patronic</td>
+
+                    <td>@order.phone</td>
+
+                    <td>@order.adress</td>
+
+                    <td>@order.email</td>
+                    @foreach (var a in order.orderDetails)
+                    {
+
+                        @foreach (var k in Model.bicycles.Where(i => a.bicycleId == i.id).ToList())
+                        {
+                            <td>
+                    @k.name
+                            </td>
+
+                        }
+
+                    }
+
+                <td>  <p><a class="btn btn-warning" asp-controller="ShowOrder" asp-action="RemoveOrder" asp-route-id="@order.id">Удалить</a></p></td>
+                </tr>
+
+
+
+            }
+
+        }
+    </tbody>
+    </thead>
+</table>
